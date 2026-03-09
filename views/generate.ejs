@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 p-10">
+
+    <div class="max-w-lg mx-auto bg-white p-8 rounded-xl shadow">
+
+        <h1 class="text-3xl font-bold mb-6 text-center">
+            Create QR Code
+        </h1>
+
+        <form action="/generate" method="POST" class="space-y-4">
+
+            <input name="text" placeholder="Enter URL / Text" class="w-full border p-3 rounded" />
+
+            <select name="type" class="w-full border p-3 rounded">
+
+                <option>URL</option>
+                <option>Text</option>
+                <option>Email</option>
+                <option>Phone</option>
+
+            </select>
+
+            <input type="date" name="expiry" class="w-full border p-3 rounded" />
+
+            <input name="password" placeholder="Password protect" class="w-full border p-3 rounded" />
+
+            <label class="flex items-center gap-2">
+
+                <input type="checkbox" name="oneTime" />
+                One Time QR
+
+            </label>
+
+            <button class="w-full bg-indigo-600 text-white p-3 rounded hover:scale-105 transition">
+
+                Generate
+
+            </button>
+
+        </form>
+
+        <% if(qrImage){ %>
+
+            <div class="mt-6 text-center">
+
+                <img src="<%= qrImage %>" />
+
+            </div>
+
+            <% } %>
+
+    </div>
+
+</body>
+
+</html>
